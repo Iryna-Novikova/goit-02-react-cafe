@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import CafeInfo from '../CafeInfo/CafeInfo';
 import css from './App.module.css';
 import { useState } from 'react';
@@ -24,7 +23,6 @@ function App() {
 
   const resetVotes = () => {
     setVotes({
-      ...votes,
       good: 0,
       neutral: 0,
       bad: 0,
@@ -35,9 +33,7 @@ function App() {
     <div className={css.app}>
       <CafeInfo />
       <VoteOptions
-        onVote={ev => {
-          handleVote(ev.currentTarget.dataset.value as VoteType);
-        }}
+        onVote={handleVote}
         onReset={resetVotes}
         canReset={totalVotes ? true : false}
       />
